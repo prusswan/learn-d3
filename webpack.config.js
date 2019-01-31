@@ -3,6 +3,7 @@ const webpack = require('webpack')
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const WriteFilePlugin = require('write-file-webpack-plugin')
 
 const paths = {
   src: path.join(__dirname, 'src'),
@@ -51,6 +52,7 @@ module.exports = {
       filename: 'main.bundle.css',
       allChunks: true,
     }),
+    new WriteFilePlugin(),
     new CopyWebpackPlugin([
       {
         from: paths.data,
