@@ -29,14 +29,14 @@ import * as d3 from 'd3'
                      if (sortAscending) {
                        rows.sort(function(a, b) { 
                          //return b[d] < a[d]; 
-                         //console.log("comparing", b[d], a[d]);
-                         return b[d] < a[d] ? 1 : b[d] == a[d] ? 0 : -1;
-                      });
+                         //console.log("comparing", a[d], b[d]);
+                         return d3.ascending(a[d], b[d]);
+                       });
                        sortAscending = false;
                        this.className = 'aes';
                      } else {
                        rows.sort(function(a, b) { 
-                         return b[d] > a[d] ? 1 : b[d] == a[d] ? 0 : -1;
+                         return d3.descending(a[d], b[d]);
                        });
                        sortAscending = true;
                        this.className = 'des';
